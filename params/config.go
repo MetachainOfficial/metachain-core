@@ -60,7 +60,7 @@ var (
 		ChainID:                       big.NewInt(1),
 		HomesteadBlock:                big.NewInt(1_150_000),
 		DAOForkBlock:                  big.NewInt(1_920_000),
-		DAOForkSupport:                true,
+		DAOForkSupport:                false,
 		EIP150Block:                   big.NewInt(2_463_000),
 		EIP155Block:                   big.NewInt(2_675_000),
 		EIP158Block:                   big.NewInt(2_675_000),

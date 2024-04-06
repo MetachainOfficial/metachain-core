@@ -43,7 +43,7 @@ const (
 func CalcDifficultyFrontierU256(time uint64, parent *types.Header) *big.Int {
 	/*
 		Algorithm
-		block_diff = pdiff + pdiff / 2048 * (1 if time - ptime < 13 else -1) + int(2^((num // 100000) - 2))
+		block_diff = pdiff + pdiff / 2048 * (1 if time - ptime < 5 else -1) + int(2^((num // 100000) - 2))
 
 		Where:
 		- pdiff  = parent.difficulty
@@ -65,7 +65,7 @@ func CalcDifficultyFrontierU256(time uint64, parent *types.Header) *big.Int {
 		pDiff.SetUint64(minimumDifficulty)
 	}
 	// 'pdiff' now contains:
-	// pdiff + pdiff / 2048 * (1 if time - ptime < 13 else -1)
+	// pdiff + pdiff / 2048 * (1 if time - ptime < 5 else -1)
 
 	if periodCount := (parent.Number.Uint64() + 1) / expDiffPeriodUint; periodCount > 1 {
 		// diff = diff + 2^(periodCount - 2)

@@ -23,6 +23,7 @@ import (
 	"math/big"
 	"runtime"
 	"time"
+	"lukechampine.com/blake3"
 
 	mapset "github.com/deckarep/golang-set/v2"
 	"github.com/ethereum/go-ethereum/common"
@@ -34,7 +35,7 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/ethereum/go-ethereum/trie"
-	"golang.org/x/crypto/sha3"
+
 )
 
 // Ethash proof-of-work protocol constants.
@@ -624,7 +625,7 @@ func (ethash *Ethash) FinalizeAndAssemble(chain consensus.ChainHeaderReader, hea
 
 // SealHash returns the hash of a block prior to it being sealed.
 func (ethash *Ethash) SealHash(header *types.Header) (hash common.Hash) {
-	hasher := sha3.NewLegacyKeccak256()
+	hasher := blake3.New(32, nil)
 
 	enc := []interface{}{
 		header.ParentHash,
