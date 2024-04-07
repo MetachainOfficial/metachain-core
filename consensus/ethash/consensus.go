@@ -43,7 +43,7 @@ var (
 	FrontierBlockReward           = big.NewInt(1e+18) // Block reward in wei for successfully mining a block
 	ByzantiumBlockReward          = big.NewInt(1e+18) // Block reward in wei for successfully mining a block upward from Byzantium
 	ConstantinopleBlockReward     = big.NewInt(1e+18) // Block reward in wei for successfully mining a block upward from Constantinople
-	maxUncles                     = 0                 // Maximum number of uncles allowed in a single block
+	maxUncles                     = 5                 // Maximum number of uncles allowed in a single block
 	allowedFutureBlockTimeSeconds = int64(5)          // Max seconds from current time allowed for blocks, before they're considered future blocks
 
 	DevelopmentFundAddress = common.HexToAddress("0x184DabdA14F13e469A19c2F551dA4290071edDBb")
